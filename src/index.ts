@@ -18,7 +18,7 @@ app.post("/template", async (req, res) => {
 
     // Call Python API to generate content
     try {
-        const pythonResponse = await axios.post('http://localhost:5000/generate', {
+        const pythonResponse = await axios.post('https://buildwiseai-python-api.onrender.com/generate', {
             prompt: `Return either node or react based on what do you think this project should be. Only return a single word either 'node' or 'react'. Do not return anything extra`
         });
 
@@ -55,7 +55,7 @@ app.post("/chat", async (req, res) => {
     const combinedPrompt = messages.map((msg: { content: any; }) => msg.content).join("\n");
     // Call Python API to generate chat response
     try {
-        const pythonResponse = await axios.post('http://localhost:5000/generate', {
+        const pythonResponse = await axios.post('https://buildwiseai-python-api.onrender.com/generate', {
             prompt: combinedPrompt
         });
 
